@@ -27,13 +27,13 @@
         </field>
     </record>
 
-    <record>
+    <record id="estate_property_view_form" model="ir.ui.view">
         <field name="name">estate_property_form</field>
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <div class="oe_title">
+                    <div class="oe_title row">
                         <div class="oe_edit_only">
                             <label for="name"/>
                         </div>
@@ -42,12 +42,12 @@
                         </h1>
                         <field name="active" invisible="1"/>
                     </div>
-                    <div class="">
-                        <div class="">
+                    <div class="row">
+                        <div class="col-4">
                             <field name="postcode"/><br/>
                             <field name="date_availability"/>
                         </div>
-                        <div class="">
+                        <div class="col-4">
                             <field name="expected_price"/><br/>
                             <field name="selling_price"/>
                         </div>

@@ -157,6 +157,9 @@
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
             <search string="Search Opportunities">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
                 <filter string="Title" name="name"/>
                 <filter string="Postcode" name="postcode"/>
                 <filter string="Expected Price" name="expected_price"/>

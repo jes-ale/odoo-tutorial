@@ -4,7 +4,7 @@
     'description': "Este es un modulo de pruebas.", 
     'application': True,
     'data': [
-        'security/ir.model.acces.csv',
+        'security/ir.model.access.csv',
         'views/estate_property_views.xml'
         
     ]

@@ -60,25 +60,69 @@
                     <notebook>
                         <page string="Description">
                             <div class="row">
-                                <div class="col-2">
-                                    <label for="description"/><br/><br /><br />
-                                    <label for="bedrooms"/><br/><br />
-                                    <label for="living_area"/><br/><br />
-                                    <label for="facades"/><br/><br />
-                                    <label for="garage"/><br/><br />
-                                    <label for="garden"/><br/><br />
-                                    <label for="garden_area"/><br/><br />
-                                    <label for="garden_orientation"/>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label for="description"/>
+                                    </div>
+                                    <div class="col-2">
+                                        <field name="description"/>
+                                    </div>
                                 </div>
-                                <div class="col-2">
-                                    <field name="description"/><br/>
-                                    <field name="bedrooms"/><br/>
-                                    <field name="living_area"/><br/>
-                                    <field name="facades"/><br/>
-                                    <field name="garage"/><br/>
-                                    <field name="garden"/><br/>
-                                    <field name="garden_area"/><br/>
-                                    <field name="garden_orientation"/>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label for="bedrooms"/>
+                                    </div>
+                                    <div class="col-2">
+                                        <field name="bedrooms"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label for="living_area"/>
+                                    </div>
+                                    <div class="col-2">
+                                        <field name="living_area"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label for="facades"/>
+                                    </div>
+                                    <div class="col-2">
+                                        <field name="facades"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label for="garage"/>
+                                    </div>
+                                    <div class="col-2">
+                                        <field name="garage"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label for="garden"/>
+                                    </div>
+                                    <div class="col-2">
+                                        <field name="garden"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label for="garden_area"/>
+                                    </div>
+                                    <div class="col-2">
+                                        <field name="garden_area"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <label for="garden_orientation"/>
+                                    </div>
+                                    <div class="col-2">
+                                        <field name="garden_orientation"/>
+                                    </div>
                                 </div>
                             </div>
                         </page>

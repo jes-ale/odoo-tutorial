@@ -22,4 +22,10 @@ class TestModel(models.Model):
         string='Type',
         selection=[('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')],
         help="Type is used to separate Leads and Opportunities")
+    state = fields.Selection(
+        string='Type',
+        selection=[('new', 'New'), ('offer received', 'Offer Received'), ('offer accepted', 'Offer Accepted'), ('sold', 'Sold'), ('canceled', 'Canceled')],
+        copy=False,
+        default="New"
+    )
 

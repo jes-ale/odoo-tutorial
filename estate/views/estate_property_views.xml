@@ -164,7 +164,7 @@
                 <field name="living_area"/>
                 <field name="facades"/>
                 <separator/>
-                <filter string="Available Properties" name="available" domain="[('state', '=', 'New'), ('state', '=', 'offer received')]"/>
+                <filter string="Available Properties" name="state" domain="[('state', '=', 'New'), ('state', '=', 'offer received')]"/>
                 <group expand="1" string="Group By">
                     <filter string="Postcode" name="postcode" context="{'group_by':'postcode'}"/>
                 </group>

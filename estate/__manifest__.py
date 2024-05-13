@@ -5,6 +5,7 @@
     'application': True,
     'data': [
         'security/ir.model.acces.csv',
+        'views/estate_property_views.xml'
         
     ]
 }

@@ -62,12 +62,12 @@
                             <div class="row">
                                 <div class="col-2">
                                     <label for="description"/><br/><br /><br />
-                                    <label for="bedrooms"/><br/>
-                                    <label for="living_area"/><br/>
-                                    <label for="facades"/><br/>
-                                    <label for="garage"/><br/>
-                                    <label for="garden"/><br/>
-                                    <label for="garden_area"/><br/>
+                                    <label for="bedrooms"/><br/><br />
+                                    <label for="living_area"/><br/><br />
+                                    <label for="facades"/><br/><br />
+                                    <label for="garage"/><br/><br />
+                                    <label for="garden"/><br/><br />
+                                    <label for="garden_area"/><br/><br />
                                     <label for="garden_orientation"/>
                                 </div>
                                 <div class="col-2">
@@ -81,7 +81,6 @@
                                     <field name="garden_orientation"/>
                                 </div>
                             </div>
-                            
                         </page>
                     </notebook>
                 </sheet>

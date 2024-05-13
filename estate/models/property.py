@@ -5,6 +5,7 @@ class TestModel(models.Model):
     _name = "estate_property"
     _description = "Test Property"
 
+    active = fields.Boolean(default=True)
     name = fields.Char(default="Unknown", required=True)
     description = fields.Text()
     postcode = fields.Char()

@@ -59,7 +59,7 @@
                     </div>
                     <notebook>
                         <page string="Description">
-                            <div>
+                            <div class="row">
                                 <div class="col-2">
                                     <label for="description"/><br/><br /><br />
                                     <label for="bedrooms"/><br/>

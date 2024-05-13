@@ -10,4 +10,20 @@
             </p>
         </field>
     </record>
+
+    <record id="estate_poperty_view_tree" model="ir.ui.view">
+        <field name="name">estate_property_tree</field>
+        <field name="model">estate_property</field>
+        <field name="arch" type="xml">
+            <tree string="Propiedad">
+                <field name="Title"/>
+                <field name="Postcode"/>
+                <field name="Bedrooms"/>
+                <field name="Living Area (sqm)"/>
+                <field name="Expected Price"/>
+                <field name="Selling Price"/>
+                <field name="Available From"/>
+            </tree>
+        </field>
+    </record>
 </odoo>

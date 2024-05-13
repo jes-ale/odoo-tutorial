@@ -160,12 +160,14 @@
                 <field name="name"/>
                 <field name="postcode"/>
                 <field name="expected_price"/>
-                <filter string="Title" name="name"/>
-                <filter string="Postcode" name="postcode"/>
-                <filter string="Expected Price" name="expected_price"/>
-                <filter string="Bedrooms" name="bedrooms"/>
-                <filter string="Living Area" name="living_area"/>
-                <filter string="Facades" name="facades"/>
+                <field name="bedrooms"/>
+                <field name="living_area"/>
+                <field name="facades"/>
+                <separator/>
+                <filter string="Available Properties" name="available" domain="[('state', '=', 'new'), ('state', '=', 'offer received')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Postcode" name="postcode" context="{'group_by':'postcode'}"/>
+                </group>
             </search>
         </field>
     </record>

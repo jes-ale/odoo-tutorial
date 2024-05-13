@@ -21,4 +21,3 @@ class TestModel(models.Model):
         Selection=[('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')],
         help="Type is used to separate Leads and Opportunities")
 
-    )

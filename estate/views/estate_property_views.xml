@@ -40,38 +40,38 @@
                         <field name="active" invisible="1"/>
                     </div>
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-4">
                                     <label for="postcode"/>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-4">
                                     <field name="postcode"/><br/>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-4">
                                     <label for="date_availability"/>   
                                 </div>
-                                <div class="col-2">
+                                <div class="col-4">
                                     <field name="date_availability"/>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-4">
                                     <label for="expected_price"/>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-4">
                                     <field name="expected_price"/>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-4">
                                     <label for="selling_price"/>
                                 </div>
-                                <div class="col-2">
+                                <div class="col-4">
                                     <field name="selling_price"/>
                                 </div>
                             </div>

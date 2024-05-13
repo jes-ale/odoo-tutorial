@@ -61,27 +61,24 @@
                         <page string="Description">
                             <div class="row">
                                 <div class="col-2">
-                                    <label for="description"/><br/>
-                                    <label for="bedrooms"/><br/>
-                                    <label for="living_area"/><br/>
-                                    <label for="facades"/><br/>
-                                    <label for="garage"/><br/>
-                                    <label for="garden"/><br/>
-                                    <label for="garden_area"/><br/>
-                                    <label for="garden_orientation"/>
-                                </div>
-                                <div class="col-2">
+                                    <label for="description"/>
                                     <field name="description"/><br/>
+                                    <label for="bedrooms"/>
                                     <field name="bedrooms"/><br/>
+                                    <label for="living_area"/>
                                     <field name="living_area"/><br/>
+                                    <label for="facades"/>
                                     <field name="facades"/><br/>
+                                    <label for="garage"/>
                                     <field name="garage"/><br/>
+                                    <label for="garden"/>
                                     <field name="garden"/><br/>
+                                    <label for="garden_area"/>
                                     <field name="garden_area"/><br/>
+                                    <label for="garden_orientation"/>
                                     <field name="garden_orientation"/>
                                 </div>
                             </div>
-                            
                         </page>
                     </notebook>
                 </sheet>

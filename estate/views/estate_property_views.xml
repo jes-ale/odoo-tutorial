@@ -16,13 +16,13 @@
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
             <tree string="Propiedad">
-                <field name="name">Title</field>
-                <field name="postcode">Postcode</field>
-                <field name="bedrooms">Bedrooms</field>
-                <field name="living_area">Living Area (sqm)</field>
-                <field name="expected_price">Expected Price</field>
-                <field name="selling_price">Selling Price</field>
-                <field name="date_availability">Available From</field>
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="bedrooms"/>
+                <field name="living_area"/>
+                <field name="expected_price"/>
+                <field name="selling_price"/>
+                <field name="date_availability"/>
             </tree>
         </field>
     </record>

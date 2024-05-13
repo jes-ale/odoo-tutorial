@@ -18,6 +18,6 @@ class TestModel(models.Model):
     garden_area = fields.Integer()
     garden_orientation = fields.Selection(
         string='Type',
-        Selection=[('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')],
+        selection=[('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')],
         help="Type is used to separate Leads and Opportunities")
 

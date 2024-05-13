@@ -24,7 +24,8 @@ class TestModel(models.Model):
         help="Type is used to separate Leads and Opportunities")
     state = fields.Selection(
         string='Type',
-        selection=[default=('new', 'New'), ('offer received', 'Offer Received'), ('offer accepted', 'Offer Accepted'), ('sold', 'Sold'), ('canceled', 'Canceled')],
-        copy=False
+        selection=[('new', 'New'), ('offer received', 'Offer Received'), ('offer accepted', 'Offer Accepted'), ('sold', 'Sold'), ('canceled', 'Canceled')],
+        copy=False,
+        default="new"
     )
 

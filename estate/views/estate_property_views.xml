@@ -47,6 +47,14 @@
                         <div class="col-6">
                             <div class="row">
                                 <div class="col-4">
+                                    <label for="property_type_id"/>
+                                </div>
+                                <div class="col-4">
+                                    <field name="property_type_id"/><br/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
                                     <label for="postcode"/>
                                 </div>
                                 <div class="col-4">

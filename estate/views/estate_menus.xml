@@ -6,7 +6,7 @@
         </menuitem>
         <menuitem id="estate_type_first_level_menu" name="Settings">
             <menuitem id="type_model_menu_action" action="estate_type_model_action"/>
-            <menuitem id="type_model_menu_action" action="estate_tags_model_action"/>
+            <menuitem id="tags_model_menu_action" action="estate_tags_model_action"/>
         </menuitem>
     </menuitem>
 </odoo>

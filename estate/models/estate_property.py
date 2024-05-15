@@ -7,7 +7,7 @@ class PropertyModel(models.Model):
     
     active = fields.Boolean(default=True)
     name = fields.Char(default="Unknown", required=True)
-    description = fields.Char(compute="_compute_description")
+    description = fields.Char()
     postcode = fields.Char()
     date_availability = fields.Date(default=lambda self: fields.Date.today() + timedelta(days=90), copy=False)
     expected_price = fields.Float(required=True)
@@ -43,7 +43,4 @@ class PropertyModel(models.Model):
         for record in self:
             record.total_area = record.garden_area + record.living_area
 
-    @api.depends('partner_id.name')
-    def _compute_description(self):
-        for record in self:
-            record.description = record.partner_id.name
+    

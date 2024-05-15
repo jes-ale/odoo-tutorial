@@ -7,17 +7,17 @@ class PropertyModel(models.Model):
     
     active = fields.Boolean(default=True)
     name = fields.Char(default="Unknown", required=True)
-    description = fields.Text()
+    description = fields.Char(compute="_compute_description")
     postcode = fields.Char()
     date_availability = fields.Date(default=lambda self: fields.Date.today() + timedelta(days=90), copy=False)
     expected_price = fields.Float(required=True)
     selling_price = fields.Float(readonly=True, copy=False)
     bedrooms = fields.Integer(default=2)
-    living_area = fields.Integer()
+    living_area = fields.Integer(default=0)
     facades = fields.Integer()
     garage = fields.Boolean(default=True)
     garden = fields.Boolean(default=True)
-    garden_area = fields.Integer()
+    garden_area = fields.Integer(default=0)
     garden_orientation = fields.Selection(
         string='Type',
         selection=[('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')],
@@ -36,3 +36,9 @@ class PropertyModel(models.Model):
     )
     tags_ids = fields.Many2many("estate_property_tags", string='Name')
     offers_id = fields.One2many("property_offer", "property_id", string="Offers")
+    total_area = fields.Integer('garden_area' + 'living_area')
+
+    @api.depends("partner_id.name")
+    def _compute_description(self):
+        for record in self:
+            record.description = "Test for partner %s" % record.partner_id.name

@@ -38,6 +38,10 @@
                             <field name="name" class="mb16"/>
                         </h1>
                         <field name="active" invisible="1"/>
+                        
+                    </div>
+                    <div class="row">
+                        <field name="tags_ids" widget="many2many_tags"/>
                     </div>
                     <div class="row">
                         <div class="col-6">
@@ -147,7 +151,7 @@
                             </div>
                         </page>
                         <page string="Offers">
-                            <field name="offers_id" widget="many2many_tags">
+                            <field name="offers_id">
                                 <tree string="Offer">
                                     <field name="price"/>
                                     <field name="partner_id"/>

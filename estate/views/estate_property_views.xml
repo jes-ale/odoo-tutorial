@@ -149,7 +149,7 @@
                         <page string="Other info">
                             <div class="row">
                                 <div class="col-2">
-                                    <label for="Salesman"/>
+                                    <label for="user_id"/>
                                 </div>
                                 <div class="col-2">
                                     <field name="user_id"/>
@@ -157,7 +157,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-2">
-                                    <label for="Buyer"/>
+                                    <label for="partner_id"/>
                                 </div>
                                 <div class="col-2">
                                     <field name="partner_id"/>

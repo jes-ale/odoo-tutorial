@@ -7,7 +7,7 @@ class PropertyModel(models.Model):
     
     active = fields.Boolean(default=True)
     name = fields.Char(default="Unknown", required=True)
-    description = fields.Char(compute="_compute_description")
+    description = fields.Char()
     postcode = fields.Char()
     date_availability = fields.Date(default=lambda self: fields.Date.today() + timedelta(days=90), copy=False)
     expected_price = fields.Float(required=True)
@@ -38,7 +38,4 @@ class PropertyModel(models.Model):
     offers_id = fields.One2many("property_offer", "property_id", string="Offers")
     total_area = fields.Integer('garden_area' + 'living_area')
 
-    @api.depends("partner_id.name")
-    def _compute_description(self):
-        for record in self:
-            record.description = "Test for partner %s" % record.partner_id.name
+   

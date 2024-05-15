@@ -146,6 +146,15 @@
                                 </div>
                             </div>
                         </page>
+                        <page string="Offers">
+                            <field name="offers_ids">
+                                <tree string="Offer">
+                                    <field name="price"/>
+                                    <field name="partner_id"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
                         <page string="Other info">
                             <div class="row">
                                 <div class="col-2">

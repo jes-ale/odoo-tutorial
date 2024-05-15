@@ -31,26 +31,6 @@
                     <div class="oe_title row">
                         <field name="name"/>
                     </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="col-4">
-                                    <label for="property_type"/>
-                                </div>
-                                <div class="col-4">
-                                    <field name="property_type"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">
-                                     
-                                </div>
-                                <div class="col-4">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </sheet>
             </form>
         </field>

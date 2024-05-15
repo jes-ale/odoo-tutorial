@@ -5,6 +5,7 @@ class PropertyModel(models.Model):
     _name = "estate_property"
     _description = "Test Property"
 
+    property_id = fields.Integer()
     active = fields.Boolean(default=True)
     name = fields.Char(default="Unknown", required=True)
     description = fields.Text()
@@ -35,4 +36,4 @@ class PropertyModel(models.Model):
         domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]"
     )
     tags_ids = fields.Many2many("estate_property_tags", string='Name')
-    offer_ids = fields.One2many("property_offer")
+    offer_ids = fields.One2many("property_offer", "property_id")

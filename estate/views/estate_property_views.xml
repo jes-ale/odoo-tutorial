@@ -166,7 +166,6 @@
                                     <t t-else="">
                                         <field name="partner_id"/>
                                     </t>
-                                    
                                 </div>
                             </div>
                         </page>

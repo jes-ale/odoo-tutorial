@@ -28,6 +28,7 @@ class PropertyModel(models.Model):
         copy=False,
         default="new"
     )
+    company_id = fields.Many2one('res.company', string='Company', index=True, default=lambda self: self.env.company.id)
     property_type_id = fields.Many2one('estate_property_type', string='Property type', index=True)
     user_id = fields.Many2one('res.users', string='Salesperson', index=True, tracking=True, default=lambda self: self.env.user, copy=False)
     partner_id = fields.Many2one('res.partner', string='Customer', index=True, tracking=10,

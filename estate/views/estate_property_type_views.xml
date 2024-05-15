@@ -29,10 +29,7 @@
             <form>
                 <sheet>
                     <div class="oe_title row">
-                        <h1 class="mb32">
-                            <field name="name" class="mb16"/>
-                        </h1>
-                        <field name="active" invisible="1"/>
+                        <field name="property_type"/>
                     </div>
                     <div class="row">
                         <div class="col-6">

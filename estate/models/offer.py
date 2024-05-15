@@ -15,4 +15,4 @@ class OfferModel(models.Model):
         domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
         required=True
     )
-    property_id = fields.Many2one('estate_property', string="property", required=True index=True)
+    property_id = fields.Many2one('estate_property', string="property", required=True, index=True)

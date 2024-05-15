@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-1,nombre,estate.model_estate_property,,1,1,1,1
+1,property,estate.model_estate_property,,1,1,1,1
+2,property_type,estate.model_estate_property_type,,1,1,1,1

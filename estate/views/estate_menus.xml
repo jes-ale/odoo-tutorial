@@ -5,4 +5,9 @@
             <menuitem id="test_model_menu_action" action="estate_model_action"/>
         </menuitem>
     </menuitem>
+    <menuitem id="estate_type_menu_root" name="Real estate property type">
+        <menuitem id="estate_type_first_level_menu" name="estate type first Level">
+            <menuitem id="type_model_menu_action" action="estate_type_model_action"/>
+        </menuitem>
+    </menuitem>
 </odoo>

@@ -28,4 +28,5 @@ class TestModel(models.Model):
         copy=False,
         default="new"
     )
+    property_type_id = fields.Integer()
 

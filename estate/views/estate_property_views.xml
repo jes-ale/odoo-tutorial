@@ -147,7 +147,7 @@
                             </div>
                         </page>
                         <page string="Offers">
-                            <field name="offers_ids">
+                            <field name="offers_ids" widget="many2many_tags">
                                 <tree string="Offer">
                                     <field name="price"/>
                                     <field name="partner_id"/>

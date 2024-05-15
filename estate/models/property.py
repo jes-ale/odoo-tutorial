@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from odoo import fields, models
 
-class TestModel(models.Model):
+class PropertyModel(models.Model):
     _name = "estate_property"
     _description = "Test Property"
 

@@ -16,7 +16,7 @@
         <field name="model">estate_property_type</field>
         <field name="arch" type="xml">
             <tree string="Propiedad">
-                <field name="property_type"/>
+                <field name="name"/>
                 
             </tree>
         </field>

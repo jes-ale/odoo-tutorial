@@ -34,3 +34,4 @@ class PropertyModel(models.Model):
     partner_id = fields.Many2one('res.partner', string='Customer', index=True, tracking=10,
         domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]"
     )
+    tags_ids = fields.Many2many("estate_property_tags" string="Name")

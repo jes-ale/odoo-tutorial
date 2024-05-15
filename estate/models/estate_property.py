@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from odoo import fields, models
+from odoo import fields, , api
 
 class PropertyModel(models.Model):
     _name = "estate_property"
@@ -7,7 +7,7 @@ class PropertyModel(models.Model):
     
     active = fields.Boolean(default=True)
     name = fields.Char(default="Unknown", required=True)
-    description = fields.Char()
+    description = fields.Char(compute="_compute_description")
     postcode = fields.Char()
     date_availability = fields.Date(default=lambda self: fields.Date.today() + timedelta(days=90), copy=False)
     expected_price = fields.Float(required=True)
@@ -36,6 +36,14 @@ class PropertyModel(models.Model):
     )
     tags_ids = fields.Many2many("estate_property_tags", string='Name')
     offers_id = fields.One2many("property_offer", "property_id", string="Offers")
-    total_area = fields.Integer(self: 'garden_area' + 'living_area', copy=False)
+    total_area = fields.Integer('Total Area', compute='_compute_total_area', store=True, copy=False)
 
-   
+   @api.depends('garden_area', 'living_area')
+   def _compute_total_area(self):
+    for record in self:
+        record.total_area = record.garden_area + record.living_area
+
+    @api.depends('partner_id.name')
+    def _compute_description(self):
+        for record in selg:
+            record.description = record.partner_id.name

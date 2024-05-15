@@ -36,6 +36,6 @@ class PropertyModel(models.Model):
     )
     tags_ids = fields.Many2many("estate_property_tags", string='Name')
     offers_id = fields.One2many("property_offer", "property_id", string="Offers")
-    total_area = fields.Integer('garden_area' + 'living_area')
+    total_area = fields.Integer(self: 'garden_area' + 'living_area', copy=False)
 
    

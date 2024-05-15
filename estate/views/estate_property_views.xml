@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <record id="estate_model_action" model="ir.actions.act_window">
-        <field name="name">Estate action</field>
+        <field name="name">Properties</field>
         <field name="res_model">estate_property</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
@@ -143,6 +143,24 @@
                                     <div class="col-2">
                                         <field name="garden_orientation"/>
                                     </div>
+                                </div>
+                            </div>
+                        </page>
+                        <page string="Other info">
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="Salesman"/>
+                                </div>
+                                <div class="col-2">
+                                    <field name="user_id"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="Buyer"/>
+                                </div>
+                                <div class="col-2">
+                                    <field name="partner_id"/>
                                 </div>
                             </div>
                         </page>

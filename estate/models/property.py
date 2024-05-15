@@ -35,4 +35,4 @@ class PropertyModel(models.Model):
         domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]"
     )
     tags_ids = fields.Many2many("estate_property_tags", string='Name')
-    offer_ids = fields.One2many("property_offer", "property_id")
+    offer_ids = fields.One2many("property_offer", 'property_id')

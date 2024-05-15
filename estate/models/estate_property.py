@@ -39,11 +39,11 @@ class PropertyModel(models.Model):
     total_area = fields.Integer('Total Area', compute='_compute_total_area', store=True, copy=False)
 
    @api.depends('garden_area', 'living_area')
-   def _compute_total_area(self):
-    for record in self:
-        record.total_area = record.garden_area + record.living_area
+    def _compute_total_area(self):
+        for record in self:
+            record.total_area = record.garden_area + record.living_area
 
     @api.depends('partner_id.name')
     def _compute_description(self):
-        for record in selg:
+        for record in self:
             record.description = record.partner_id.name

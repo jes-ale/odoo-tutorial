@@ -38,7 +38,7 @@ class PropertyModel(models.Model):
     offers_id = fields.One2many("property_offer", "property_id", string="Offers")
     total_area = fields.Integer(compute='_compute_total_area', store=True, copy=False)
 
-   @api.depends('garden_area', 'living_area')
+    @api.depends('garden_area', 'living_area')
     def _compute_total_area(self):
         for record in self:
             record.total_area = record.garden_area + record.living_area

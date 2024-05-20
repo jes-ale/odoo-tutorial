@@ -1,6 +1,6 @@
 {
     'name': 'Real estate',
-    'version': '1.0',
+    'version': '1.1',
     'description': "Este es un modulo de pruebas.", 
     'application': True,
     'data': [

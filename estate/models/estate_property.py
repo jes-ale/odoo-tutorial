@@ -69,7 +69,7 @@ class PropertyModel(models.Model):
             record.best_price = max(prices, default=0.0)
 
     @api.onchange('garden')
-    def onchange_garden(self):
+    def _onchange_garden(self):
         for record in self:
             if record.garden:
                 record.garden_area = 10

@@ -16,3 +16,22 @@ class OfferModel(models.Model):
         required=True
     )
     property_id = fields.Many2one('estate_property', string="property", required=True, index=True)
+    validity = fields.Integer(default=7)
+    date_deadline = fields.Date(compute='')
+    create_date = fields.Date(string="Creation Date", readonly=True)
+
+    @api.depends('create_date', 'validity')
+        def _compute_date_deadline(self):
+            for offer in self:
+                if offer.create_date:
+                    offer.date_deadline = offer.create_date + timedelta(days=offer.validity)
+                else:
+                    offer.date_deadline = False
+
+        def _inverse_date_deadline(self):
+            for offer in self:
+                if offer.create_date and offer.date_deadline:
+                    delta = offer.date_deadline - offer.create_date.date()
+                    offer.validity = delta.days
+                else:
+                    offer.validity = 0

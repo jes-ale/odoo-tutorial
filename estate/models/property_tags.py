@@ -7,7 +7,9 @@ class PropertyTagsModel(models.Model):
     active = fields.Boolean(default=True)
     name = fields.Char(default="Unknown", required=True)
     description = fields.Text()
-    
-    _sql_constraints = [
-        ('unique_tag_name', 'unique(name)', 'Tag names shoulde be unique')
-    ]
+
+    @api.constrains('name')
+    def _check_tag_name(self):
+        for record in self:
+            if self.search([('name', '=', record.name), ('id', '!=', record.id)]):
+                raise ValidationError("Tag names should be unique")

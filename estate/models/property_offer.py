@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from odoo import fields, models, api
 from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
 
 class OfferModel(models.Model):
     _name = "property_offer"
@@ -56,7 +57,9 @@ class OfferModel(models.Model):
             else:
                 offer.validity = 0
 
-    _sql_constraints = [
-        ('check_price', 'CHECK(price > 0)', 'Price should be upper than 0')
-    ]
+    @api.constrains('price')
+    def _check_price(self):
+        for offer in self:
+            if record.price < 0:
+                raise ValidationError("The price should be upper than 0")
                 

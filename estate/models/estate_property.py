@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from odoo import fields, models , api
 from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
 
 class PropertyModel(models.Model):
     _name = "estate_property"
@@ -77,11 +78,15 @@ class PropertyModel(models.Model):
             else:
                 record.garden_area = 0
                 record.garden_orientation = ''
-
-    _sql_constraints = [
-        ('check_expected_price', 'CHECK(expected_price >= 0)',
-        'The expected price of a property should be positive'),
-        ('check_selling_price', 'CHECK(selling_price >= 0)',
-        'Selling price of a property should be positive')
-    ]
     
+    @api.constrains('expected_price')
+    def _check_expected_price(self):
+        for record in self:
+            if record.expected_price < 0:
+                raise ValidationError("Expected price should be positive")
+    
+    @api.constrains('selling_price')
+    def _check_selling_price(self):
+        for record in self:
+            if record.selling_price < 0:
+                raise ValidationError("Selling price should be positive")

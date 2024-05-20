@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 class PropertyTagsModel(models.Model):
     _name = "estate_property_tags"

@@ -44,13 +44,13 @@ class PropertyModel(models.Model):
         for record in self:
             if record.state == 'canceled':
                 raise UserError("Canceled properties cannot be sold.")
-            property.state = 'sold'
+            record.state = 'sold'
 
     def action_cancel(self):
         for record in self:
             if record.state == 'sold':
                 raise UserError("Sold properties cannot be canceled.")
-            property.state = 'canceled'
+            record.state = 'canceled'
 
     @api.depends('garden_area', 'living_area')
     def _compute_total_area(self):

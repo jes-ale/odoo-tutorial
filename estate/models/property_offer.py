@@ -55,4 +55,8 @@ class OfferModel(models.Model):
                 offer.validity = delta.days
             else:
                 offer.validity = 0
+
+    _sql_constraints = [
+        ('check_price', 'CHECK(price > 0)')
+    ]
                 

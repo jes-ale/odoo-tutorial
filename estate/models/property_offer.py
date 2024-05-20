@@ -57,6 +57,6 @@ class OfferModel(models.Model):
                 offer.validity = 0
 
     _sql_constraints = [
-        ('check_price', 'CHECK(price > 0)')
+        ('check_price', 'CHECK(price > 0)', 'Price should be upper than 0')
     ]
                 

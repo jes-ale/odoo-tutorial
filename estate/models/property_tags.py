@@ -9,5 +9,5 @@ class PropertyTagsModel(models.Model):
     description = fields.Text()
     
     _sql_constraints = [
-        ('unique_tag_name', 'unique(name)')
+        ('unique_tag_name', 'unique(name)', 'Tag names shoulde be unique')
     ]

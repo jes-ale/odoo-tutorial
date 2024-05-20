@@ -54,3 +54,13 @@ class PropertyModel(models.Model):
         for record in self:
             prices = record.offers_id.mapped('price')
             record.best_price = max(prices, default=0.0)
+
+    @api.onchange('garden')
+    def _onchange_garden(self):
+        for record in self:
+            if record.garden:
+                record.garden_area = 10
+                record.garden_orientation = 'north'
+            else:
+                record.garden_area = 0
+                record.garden_orientation = ''

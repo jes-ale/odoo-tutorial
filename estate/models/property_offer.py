@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from odoo import fields, models, api
+from odoo.exceptions import UserError
 
 class OfferModel(models.Model):
     _name = "property_offer"

@@ -54,9 +54,4 @@ class OfferModel(models.Model):
                 offer.validity = delta.days
             else:
                 offer.validity = 0
-
-    @api.onchange('status')
-    def _onchange_status(self):
-        for offer in self:
-            if offer.status == 'accepted':
                 

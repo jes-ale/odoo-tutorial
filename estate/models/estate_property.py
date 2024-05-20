@@ -19,7 +19,7 @@ class PropertyModel(models.Model):
     garden = fields.Boolean(default=True)
     garden_area = fields.Integer(default=0, string="Garden Area (sqm)")
     garden_orientation = fields.Selection(
-        string='Type',
+        string='Garden Orientation',
         selection=[('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')],
         help="Type is used to separate Leads and Opportunities")
     state = fields.Selection(

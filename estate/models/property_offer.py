@@ -9,7 +9,8 @@ class OfferModel(models.Model):
     status = fields.Selection(
         string='Type',
         selection=[('accepted', 'Accepted'), ('refused', 'Refused')],
-        copy=False
+        copy=False,
+        readonly=True
     )
     company_id = fields.Many2one('res.company', string='Company', index=True, default=lambda self: self.env.company.id)
     partner_id = fields.Many2one('res.partner', string='Customer', index=True, tracking=10,
@@ -23,6 +24,8 @@ class OfferModel(models.Model):
 
     def action_accept(self):
         for offer in self:
+            if offer.property_id.state == 'offer accepted':
+                raise UserError("An offer was already accepted.")
             offer.status = 'accepted'
     
     def action_refuse(self):
@@ -46,3 +49,11 @@ class OfferModel(models.Model):
                 offer.validity = delta.days
             else:
                 offer.validity = 0
+
+    @api.onchange('status')
+    def _onchange_status(self):
+        for offer in self:
+            if offer.status == 'accepted':
+                offer.property_id.partner_id = offer.partner_id
+                offer.partner_id.selling_price = offer.price
+                offer.property_id.state = 'offer accepted'

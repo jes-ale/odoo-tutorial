@@ -35,7 +35,7 @@
                 <header>
                     <div class="row">
                         <div class="col-4">
-                            <button name="action_sold" type="object" string="SOLD"/>
+                            <button name="action_sold" type="object" string="SOLD" />
                         </div>
                     </div>
                 </header>

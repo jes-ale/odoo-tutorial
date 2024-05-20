@@ -37,6 +37,9 @@
                         <div class="col-4">
                             <button name="action_sold" type="object" string="SOLD" />
                         </div>
+                        <div class="col-4">
+                            <button name="action_cancel" type="object" string="CANCEL" />
+                        </div>
                     </div>
                 </header>
                 <sheet>
@@ -186,9 +189,11 @@
                                 <tree string="Offer">
                                     <field name="price"/>
                                     <field name="partner_id"/>
-                                    <field name="status"/>
                                     <field name="validity"/>
                                     <field name="date_deadline"/>
+                                    <button name="action_accept" type="object" icon="fa-check"/>
+                                    <button name="action_refuse" type="object" icon="fa-times"/>
+                                    <field name="status"/>
                                 </tree>
                             </field>
                         </page>

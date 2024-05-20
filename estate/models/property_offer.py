@@ -21,6 +21,14 @@ class OfferModel(models.Model):
     date_deadline = fields.Date(compute='_compute_date_deadline', inverse='_inverse_date_deadline', store=True, string="Deadline", readonly=True)
     create_date = fields.Datetime(string="Creation Date", readonly=True)
 
+    def action_accept(self):
+        for offer in self:
+            offer.status = 'accepted'
+    
+    def action_refuse(self):
+        for offer in self:
+            offer.status = 'refused'
+
     @api.depends('create_date', 'validity')
     def _compute_date_deadline(self):
         for offer in self:

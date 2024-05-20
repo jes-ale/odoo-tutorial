@@ -24,13 +24,18 @@ class OfferModel(models.Model):
 
     def action_accept(self):
         for offer in self:
-            if offer.property_id.state == 'offer accepted':
+            if offer.property_id.mapped('state') == 'offer accepted':
                 raise UserError("An offer was already accepted.")
             offer.status = 'accepted'
+            offer.property_id.mapped('partner_id') = offer.partner_id
+            offer.partner_id.mapped('partner_id') = offer.price
+            offer.property_id.mapped('state') = 'offer accepted'
     
     def action_refuse(self):
         for offer in self:
             offer.status = 'refused'
+            offer.property_id.mapped('state') = 'offer received'
+            offer.property_id.mapped('partner_id') = ''
 
     @api.depends('create_date', 'validity')
     def _compute_date_deadline(self):
@@ -54,6 +59,4 @@ class OfferModel(models.Model):
     def _onchange_status(self):
         for offer in self:
             if offer.status == 'accepted':
-                offer.property_id.partner_id = offer.partner_id
-                offer.partner_id.selling_price = offer.price
-                offer.property_id.state = 'offer accepted'
+                

@@ -32,16 +32,14 @@
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
             <form>
-                
+                <header>
                     <div class="row">
-                        <div class="col-2">
-                            <button name="action_sold" type="object" string="SOLD" class="btn btn-primary"/>
-                        </div>
+                        
                         <div class="col-2">
                             <button name="action_cancel" type="object" string="CANCEL" class="btn btn-secondary"/>
                         </div>
                     </div>
-                
+                </header>
                 <sheet>
                     <div class="oe_title row">
                         <h1 class="mb32">

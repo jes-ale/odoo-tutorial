@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from odoo import fields, models , api
+from odoo.exceptions import UserError
 
 class PropertyModel(models.Model):
     _name = "estate_property"
@@ -39,6 +40,18 @@ class PropertyModel(models.Model):
     total_area = fields.Integer(compute='_compute_total_area', store=True, copy=False, string="Total Area (sqm)")
     best_price = fields.Float(compute='_compute_best_offer', store=True, string="Best Offer")
 
+    def action_sold(self):
+        for record in self:
+            if record.state == 'canceled':
+                raise UserError("Canceled properties cannot be sold.")
+            property.state = 'sold'
+
+    def action_cancel(self):
+        for record in self:
+            if record.state == 'sold':
+                raise UserError("Sold properties cannot be canceled.")
+            property.state = 'canceled'
+
     @api.depends('garden_area', 'living_area')
     def _compute_total_area(self):
         for record in self:
@@ -65,15 +78,3 @@ class PropertyModel(models.Model):
                 record.garden_area = 0
                 record.garden_orientation = ''
     
-    def action_sold(self):
-        for record in self:
-            if record.state == 'canceled':
-                raise UserError("Canceled properties cannot be sold.")
-            property.state = 'sold'
-
-    def action_cancel(seld):
-        for record in self:
-            if record.state == 'sold':
-                raise UserError("Sold properties cannot be canceled.")
-            property.state = 'canceled'
-

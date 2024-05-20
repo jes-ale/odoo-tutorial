@@ -28,7 +28,7 @@ class OfferModel(models.Model):
                 raise UserError("An offer was already accepted.")
             offer.status = 'accepted'
             offer.property_id.partner_id = offer.partner_id
-            offer.partner_id.selling_price = offer.price
+            offer.property_id.selling_price = offer.price
             offer.property_id.state = 'offer accepted'
     
     def action_refuse(self):

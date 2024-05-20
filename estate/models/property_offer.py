@@ -31,7 +31,9 @@ class OfferModel(models.Model):
 
     def _inverse_date_deadline(self):
         for offer in self:
-            if offer.create_date and offer.date_deadline:
+            if offer.date_deadline:
+                if not offer.create_date:
+                    offer.create_date = fields.Datetime.now()
                 delta = offer.date_deadline - offer.create_date.date()
                 offer.validity = delta.days
             else:

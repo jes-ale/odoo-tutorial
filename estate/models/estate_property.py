@@ -13,11 +13,11 @@ class PropertyModel(models.Model):
     expected_price = fields.Float(required=True)
     selling_price = fields.Float(readonly=True, copy=False)
     bedrooms = fields.Integer(default=2)
-    living_area = fields.Integer(default=0)
+    living_area = fields.Integer(default=0, string="Living Area (sqm)")
     facades = fields.Integer()
     garage = fields.Boolean(default=True)
     garden = fields.Boolean(default=True)
-    garden_area = fields.Integer(default=0)
+    garden_area = fields.Integer(default=0, string="Garden Area (sqm)")
     garden_orientation = fields.Selection(
         string='Type',
         selection=[('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')],
@@ -36,7 +36,8 @@ class PropertyModel(models.Model):
     )
     tags_ids = fields.Many2many("estate_property_tags", string='Name')
     offers_id = fields.One2many("property_offer", "property_id", string="Offers")
-    total_area = fields.Integer(compute='_compute_total_area', store=True, copy=False)
+    total_area = fields.Integer(compute='_compute_total_area', store=True, copy=False, string="Total Area (sqm)")
+    best_price = fields.Float(compute='_compute_best_offer', store=True, string="Best Offer")
 
     @api.depends('garden_area', 'living_area')
     def _compute_total_area(self):
@@ -47,3 +48,9 @@ class PropertyModel(models.Model):
     def _compute_description(self):
         for record in self:
             record.description = record.partner_id.name
+
+    @api.depends('offers_id.price')
+    def _compute_best_offer(self):
+        for record in self:
+            prices = record.offers_id.mapped('price')
+            record.best_price = max(prices, default=0.0)

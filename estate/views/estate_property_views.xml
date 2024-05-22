@@ -32,6 +32,7 @@
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
             <form>
+
                 <header>
                     <button name="action_sold" type="object" string="SOLD"
                             attrs="{'invisible': [('state', 'in', ['sold', 'cancelled'])]}"/>
@@ -182,7 +183,7 @@
                         </page>
                         <page string="Offers">
                             <field name="offers_id" attrs="{'readonly' : [('state', 'in' , ['offer-accepted', 'sold', 'canceled'])]}">
-                                <tree string="Offer">
+                                <tree string="Offer" edit="True">
                                     <field name="price"/>
                                     <field name="partner_id"/>
                                     <field name="validity"/>

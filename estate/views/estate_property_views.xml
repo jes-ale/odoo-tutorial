@@ -15,7 +15,7 @@
         <field name="name">estate_property_tree</field>
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
-            <tree string="Propiedad" decoration-success="state == 'offer-received'">
+            <tree string="Propiedad" decoration-success="state == 'offer received' or state == 'offer accepted'" decoration-bf="state == 'offer-accepted'">
                 <field name="name"/>
                 <field name="postcode"/>
                 <field name="bedrooms"/>

@@ -36,6 +36,7 @@ class PropertyModel(models.Model):
     property_type_id = fields.Many2one('estate_property_type', string='Property type', index=True)
     user_id = fields.Many2one('res.users', string='Salesperson', index=True, tracking=True, default=lambda self: self.env.user, copy=False)
     partner_id = fields.Many2one('res.partner', string='Customer', index=True, tracking=10,
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]"
     )
     tags_ids = fields.Many2many("estate_property_tags", string='Name')
     offers_id = fields.One2many("property_offer", "property_id", string="Offers")

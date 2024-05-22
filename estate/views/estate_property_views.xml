@@ -205,10 +205,20 @@
                             </div>
                             <div class="row">
                                 <div class="col-2">
-                                    <label for="partner_id"/>
+                                    <t t-if="company_id">
+                                        <label for="company_id"/>
+                                    </t>
+                                    <t t-else="">
+                                        <label for="partner_id"/>
+                                    </t>
                                 </div>
                                 <div class="">
-                                    <field name="partner_id"/>
+                                    <t t-if="company_id">
+                                        <field name="company_id"/>
+                                    </t>
+                                    <t t-else="">
+                                        <field name="partner_id"/>
+                                    </t>
                                 </div>
                             </div>
                         </page>

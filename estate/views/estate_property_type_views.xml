@@ -34,11 +34,11 @@
                 </sheet>
                 <notebook>
                     <page string="Properties">
-                        <field name="line_ids">
+                        <field name="property_ids">
                             <tree>
-                                <field name="line_ids.name"/>
-                                <field name="line_ids.expected_price"/>
-                                <field name="line_ids.status"/>
+                                <field name="property_ids.name"/>
+                                <field name="property_ids.expected_price"/>
+                                <field name="property_ids.status"/>
                             </tree>
                         </field>
                     </page>

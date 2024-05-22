@@ -190,7 +190,7 @@
                                     <button name="action_accept" type="object" icon="fa-check" attrs="{'invisible': [('property_id.state', 'in', ['sold'])]}"/>
                                     <button name="action_refuse" type="object" icon="fa-times" attrs="{'invisible': [('property_id.state', 'in', ['sold'])]}"/>
                                     <field name="status"/>
-                                    <field name="property_id.state" invisible="1"/>
+                                    <field name="property_id" invisible="1"/>
                                 </tree>
                             </field>
                         </page>

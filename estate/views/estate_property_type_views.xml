@@ -36,9 +36,9 @@
                     <page string="Properties">
                         <field name="property_ids">
                             <tree>
-                                <field name="property_ids.name"/>
-                                <field name="property_ids.expected_price"/>
-                                <field name="property_ids.status"/>
+                                <field name="name"/>
+                                <field name="expected_price"/>
+                                <field name="status"/>
                             </tree>
                         </field>
                     </page>

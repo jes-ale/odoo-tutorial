@@ -79,16 +79,17 @@ class PropertyModel(models.Model):
                 record.garden_area = 0
                 record.garden_orientation = ''
     
-    @api.constrains('expected_price')
-    def _check_expected_price(self):
+    @api.constrains('expected_price', 'selling_price', 'state')
+    def _check_prices(self):
         for record in self:
-            if record.expected_price < 0:
-                raise ValidationError("Expected price should be positive")
-    
-    @api.constrains('selling_price')
-    def _check_selling_price(self):
-        for record in self:
-            if record.selling_price < 0:
-                raise ValidationError("Selling price should be positive")
-            if record.selling_price < (record.expected_price * 0.9):
-                raise ValidationError("Selling price should be upper than 90 percent of the expected price")
+            # Check that the expected price is always positive
+            if float_compare(record.expected_price, 0.0, precision_rounding=0.01) < 0:
+                raise ValidationError("The expected price of a property should be positive.")
+            
+            # Selling price can be zero only if the property is not yet sold or canceled
+            if record.state not in ['sold', 'canceled'] and float_is_zero(record.selling_price, precision_rounding=0.01):
+                continue
+            
+            # Check that the selling price is positive otherwise
+            if float_compare(record.selling_price, 0.0, precision_rounding=0.01) < 0:
+                raise ValidationError("Selling price of a property should be positive unless the property is sold or canceled.")

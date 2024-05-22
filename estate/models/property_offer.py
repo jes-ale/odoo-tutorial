@@ -35,9 +35,11 @@ class OfferModel(models.Model):
     
     def action_refuse(self):
         for offer in self:
-            offer.status = 'refused'
-            offer.property_id.state = 'offer received'
-            offer.property_id.partner_id = ''
+            if offer.property_id.state == 'offer accepted':
+                offer.status = 'refused'
+                offer.property_id.selling_price = 0.0
+                offer.property_id.state = 'offer received'
+                offer.property_id.partner_id = ''
 
     @api.depends('create_date', 'validity')
     def _compute_date_deadline(self):

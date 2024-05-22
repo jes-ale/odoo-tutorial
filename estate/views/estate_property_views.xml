@@ -181,7 +181,7 @@
                             </div>
                         </page>
                         <page string="Offers">
-                            <field name="offers_id" readonly="state in ['offer accepted', 'sold', 'canceled']">
+                            <field name="offers_id">
                                 <tree string="Offer">
                                     <field name="price"/>
                                     <field name="partner_id"/>

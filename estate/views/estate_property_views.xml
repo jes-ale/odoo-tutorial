@@ -190,6 +190,7 @@
                                     <button name="action_accept" type="object" icon="fa-check" attrs="{'invisible': [('state', 'in', ['offer accepted' ,'sold'])]}"/>
                                     <button name="action_refuse" type="object" icon="fa-times" attrs="{'invisible': [('state', 'in', ['offer accepted' ,'sold'])]}"/>
                                     <field name="status"/>
+                                    <field name="state" invisible="1"/>
                                 </tree>
                             </field>
                         </page>

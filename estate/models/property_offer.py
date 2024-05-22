@@ -66,5 +66,5 @@ class OfferModel(models.Model):
         for offer in self:
             if offer.price < 0:
                 raise ValidationError("The price should be upper than 0")
-            offer.property_id.state == 'offer-received'
+            offer.property_id.state = 'offer-received'
                 

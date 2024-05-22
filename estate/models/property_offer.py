@@ -33,7 +33,7 @@ class OfferModel(models.Model):
             offer.property_id.selling_price = offer.price
             offer.property_id.state = 'offer accepted'
     
-    def action_refused(self):
+    def action_refuse(self):
         for offer in self:
             if offer.status == 'accepted':
                 offer.status = 'refused'

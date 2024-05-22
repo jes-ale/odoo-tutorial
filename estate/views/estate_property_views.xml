@@ -187,10 +187,10 @@
                                     <field name="partner_id"/>
                                     <field name="validity"/>
                                     <field name="date_deadline"/>
-                                    <button name="action_accept" type="object" icon="fa-check" attrs="{'invisible': [('state', 'in', ['sold'])]}"/>
-                                    <button name="action_refuse" type="object" icon="fa-times" attrs="{'invisible': [('state', 'in', ['sold'])]}"/>
+                                    <button name="action_accept" type="object" icon="fa-check" attrs="{'invisible': [('estate_property.state', 'in', ['sold'])]}"/>
+                                    <button name="action_refuse" type="object" icon="fa-times" attrs="{'invisible': [('estate_property.state', 'in', ['sold'])]}"/>
                                     <field name="status"/>
-                                    <field name="state" invisible="1"/>
+                                    <field name="estate_property.state" invisible="1"/>
                                 </tree>
                             </field>
                         </page>

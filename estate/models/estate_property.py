@@ -90,5 +90,5 @@ class PropertyModel(models.Model):
         for record in self:
             if record.selling_price < 0:
                 raise ValidationError("Selling price should be positive")
-            if record.offers_id.price < (record.expected_price * 0.9):
+            if record.selling_price < (record.expected_price * 0.9):
                 raise ValidationError("Selling price should be upper than 90 percent of the expected price")

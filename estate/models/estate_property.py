@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from odoo import fields, models , api
 from odoo.exceptions import UserError
 from odoo.exceptions import ValidationError
+from odoo.tools.float_utils import float_compare, float_is_zero
 
 class PropertyModel(models.Model):
     _name = "estate_property"

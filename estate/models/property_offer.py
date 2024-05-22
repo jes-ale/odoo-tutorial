@@ -26,7 +26,7 @@ class OfferModel(models.Model):
 
     def action_accept(self):
         for offer in self:
-            if any(other_offer.status == 'accepted' for other_offer in offer.property_id.offer_ids):
+            if any(other_offer.status == 'accepted' for other_offer in offer.property_id.offers_id):
                 raise UserError("An offer was already accepted.")
             offer.status = 'accepted'
             offer.property_id.partner_id = offer.partner_id
@@ -35,7 +35,7 @@ class OfferModel(models.Model):
     
     def action_refuse(self):
         for offer in self:
-            if any(other_offer.status == 'accepted' for other_offer in offer.property_id.offer_ids):
+            if any(other_offer.status == 'accepted' for other_offer in offer.property_id.offers_id):
                 raise UserError("An offer was already accepted.")
             offer.status = 'refused'
             offer.property_id.state = 'offer received'

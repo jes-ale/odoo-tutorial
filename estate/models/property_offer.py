@@ -60,6 +60,6 @@ class OfferModel(models.Model):
     @api.constrains('price')
     def _check_price(self):
         for offer in self:
-            if record.price < 0:
+            if offer.price < 0:
                 raise ValidationError("The price should be upper than 0")
                 

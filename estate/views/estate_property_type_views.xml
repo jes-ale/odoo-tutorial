@@ -29,20 +29,22 @@
             <form>
                 <sheet>
                     <div class="oe_title row">
-                        <field name="name"/>
+                        <h1 class="mb32">
+                            <field name="name" class="mb16"/>
+                        </h1>
                     </div>
+                    <notebook>
+                        <page string="Properties">
+                            <field name="property_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="expected_price"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
-                <notebook>
-                    <page string="Properties">
-                        <field name="property_ids">
-                            <tree>
-                                <field name="name"/>
-                                <field name="expected_price"/>
-                                <field name="state"/>
-                            </tree>
-                        </field>
-                    </page>
-                </notebook>
             </form>
         </field>
     </record>

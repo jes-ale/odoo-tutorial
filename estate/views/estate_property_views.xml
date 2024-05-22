@@ -159,7 +159,7 @@
                                         <label for="garden_area"/>
                                     </div>
                                     <div class="col-6">
-                                        <field name="garden_area"/>
+                                        <field name="garden_area" attrs="{'invisible': [('garden', '=', False)]}"/>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -167,7 +167,7 @@
                                         <label for="garden_orientation"/>
                                     </div>
                                     <div class="col-6">
-                                        <field name="garden_orientation"/>
+                                        <field name="garden_orientation" attrs="{'invisible': [('garden', '=', False)]}"/>
                                     </div>
                                 </div>
                                 <div class="row">

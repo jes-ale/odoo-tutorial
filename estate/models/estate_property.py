@@ -99,3 +99,6 @@ class PropertyModel(models.Model):
             min_acceptable_price = record.expected_price * 0.9
             if not float_is_zero(record.selling_price, precision_rounding=0.01) and float_compare(record.selling_price, min_acceptable_price, precision_rounding=0.01) < 0:
                 raise ValidationError("The selling price cannot be lower than 90% of the expected price.")
+            
+                
+            

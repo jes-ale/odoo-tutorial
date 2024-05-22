@@ -34,15 +34,16 @@
             <form>
                 <header>
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-2">
                             <button name="action_sold" type="object" string="SOLD" />
                         </div>
-                        <div class="col-4">
+                        <div class="col-2">
                             <button name="action_cancel" type="object" string="CANCEL" />
                         </div>
-                        <div>
-                            
-                            <field name="state" widget="statusbar" statusbar_visible="new,offer received,offer accepted,sold" />
+                        <div class="col-6">
+                            <div class="row">
+                                <field name="state" widget="statusbar" statusbar_visible="new,offer received,offer accepted,sold" />
+                            </div>
                         </div>
                     </div>
                 </header>

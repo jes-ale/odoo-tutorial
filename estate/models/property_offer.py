@@ -33,14 +33,16 @@ class OfferModel(models.Model):
             offer.property_id.selling_price = offer.price
             offer.property_id.state = 'offer accepted'
     
-    def action_refuse(self):
+    def action_reject(self):
         for offer in self:
-            if any(other_offer.status == 'accepted' for other_offer in offer.property_id.offers_id):
-                raise UserError("An offer was already accepted.")
-            offer.status = 'refused'
-            offer.property_id.state = 'offer received'
-            offer.property_id.partner_id = ''
-            offer.property_id.selling_price = 0.0
+            if offer.status == 'accepted':
+                offer.status = 'rejected'
+                offer.property_id.selling_price = 0
+                # Check if there are any other accepted offers
+                if not any(other_offer.status == 'accepted' for other_offer in offer.property_id.offer_ids):
+                    offer.property_id.state = 'offer received' if any(o.status == 'accepted' for o in offer.property_id.offer_ids) else 'new'
+            else:
+                offer.status = 'rejected'
 
     @api.depends('create_date', 'validity')
     def _compute_date_deadline(self):

@@ -5,6 +5,7 @@ class PropertyTypeModel(models.Model):
     _description = "Type property"
 
     name = fields.Char(default="Unknown", required=True)
+    line_ids = fields.One2many('estate_property', 'property_type_id')
 
     @api.constrains('name')
     def _check_type_name(self):

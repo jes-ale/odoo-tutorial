@@ -32,6 +32,17 @@
                         <field name="name"/>
                     </div>
                 </sheet>
+                <notebook>
+                    <page string="Properties">
+                        <field name="line_ids">
+                            <tree>
+                                <field name="line_ids.name"/>
+                                <field name="line_ids.expected_price"/>
+                                <field name="line_ids.status"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
             </form>
         </field>
     </record>

@@ -9,7 +9,7 @@ class PropertyModel(models.Model):
     _description = "Test Property"
     
     active = fields.Boolean(default=True)
-    name = fields.Char(default="Unknown", required=True)
+    name = fields.Char(default="Unknown", required=True, string="Title")
     description = fields.Char(compute="_compute_description")
     postcode = fields.Char()
     date_availability = fields.Date(default=lambda self: fields.Date.today() + timedelta(days=90), copy=False)

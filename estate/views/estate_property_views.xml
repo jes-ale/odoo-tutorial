@@ -182,11 +182,11 @@
                             </div>
                         </page>
                         <page string="Offers">
-                            <field name="offers_id" editable="True" attrs="{'readonly': [('state', 'in', ['offer-accepted', 'sold', 'canceled'])]}">
+                            <field name="offers_id" attrs="{'readonly': [('state', 'in', ['offer-accepted', 'sold', 'canceled'])]}">
                                 <tree> 
-                                    <field name="price"/>
-                                    <field name="partner_id"/>
-                                    <field name="validity"/>
+                                    <field name="price" editable="True"/>
+                                    <field name="partner_id" editable="True"/>
+                                    <field name="validity" editable="True"/>
                                     <field name="date_deadline"/>
                                     <button name="action_accept" type="object" icon="fa-check" attrs="{'invisible': [('status', 'in', ['accepted','refused'])]}"/>
                                     <button name="action_refuse" type="object" icon="fa-times" attrs="{'invisible': [('status', 'in', ['accepted','refused'])]}"/>

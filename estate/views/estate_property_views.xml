@@ -37,7 +37,7 @@
                             attrs="{'invisible': [('state', 'in', ['sold', 'cancelled'])]}"/>
                     <button name="action_cancel" type="object" string="CANCEL"
                             attrs="{'invisible': [('state', 'in', ['sold', 'cancelled'])]}"/>
-                    <field name="state" widget="statusbar" statusbar_visible="new,offer received,offer accepted,sold" />
+                    <field name="state" widget="statusbar" statusbar_visible="new,offer-received,offer-accepted,sold" />
                     
                 </header>
                 <sheet>
@@ -181,7 +181,7 @@
                             </div>
                         </page>
                         <page string="Offers">
-                            <field name="offers_id" readonly="state == 'offer accepted'">
+                            <field name="offers_id" readonly="state in ['offer-accepted', 'sold', 'canceled']">
                                 <tree string="Offer">
                                     <field name="price"/>
                                     <field name="partner_id"/>
@@ -234,7 +234,7 @@
                 <field name="living_area"/>
                 <field name="facades"/>
                 <separator/>
-                <filter string="Available Properties" name="state" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer received')]"/>
+                <filter string="Available Properties" name="state" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer-received')]"/>
                 <group expand="1" string="Group By">
                     <filter string="Postcode" name="postcode" context="{'group_by':'postcode'}"/>
                 </group>

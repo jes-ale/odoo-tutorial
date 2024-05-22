@@ -32,7 +32,7 @@ class OfferModel(models.Model):
             offer.status = 'accepted'
             offer.property_id.partner_id = offer.partner_id
             offer.property_id.selling_price = offer.price
-            offer.property_id.state = 'offer accepted'
+            offer.property_id.state = 'offer-accepted'
     
     def action_refuse(self):
         for offer in self:
@@ -41,7 +41,7 @@ class OfferModel(models.Model):
                 offer.property_id.selling_price = 0
                 # Check if there are any other accepted offers
                 if not any(other_offer.status == 'accepted' for other_offer in offer.property_id.offers_id):
-                    offer.property_id.state = 'offer received' if any(o.status == 'accepted' for o in offer.property_id.offers_id) else 'new'
+                    offer.property_id.state = 'offer-received' if any(o.status == 'accepted' for o in offer.property_id.offers_id) else 'new'
             else:
                 offer.status = 'refused'
 

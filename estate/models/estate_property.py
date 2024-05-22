@@ -32,12 +32,9 @@ class PropertyModel(models.Model):
         copy=False,
         default="new"
     )
-    company_id = fields.Many2one('res.company', string='Company', index=True, default=lambda self: self.env.company.id)
     property_type_id = fields.Many2one('estate_property_type', string='Property type', index=True)
     user_id = fields.Many2one('res.users', string='Salesperson', index=True, tracking=True, default=lambda self: self.env.user, copy=False)
-    partner_id = fields.Many2one('res.partner', string='Customer', index=True, tracking=10,
-        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]"
-    )
+    partner_id = fields.Many2one('res.partner', string='Customer', index=True, tracking=10)
     tags_ids = fields.Many2many("estate_property_tags", string='Name')
     offers_id = fields.One2many("property_offer", "property_id", string="Offers")
     total_area = fields.Integer(compute='_compute_total_area', store=True, copy=False, string="Total Area (sqm)")

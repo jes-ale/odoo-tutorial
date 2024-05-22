@@ -40,7 +40,7 @@ class OfferModel(models.Model):
                 offer.property_id.selling_price = 0
                 # Check if there are any other accepted offers
                 if not any(other_offer.status == 'accepted' for other_offer in offer.property_id.offers_id):
-                    offer.property_id.state = 'offer received' if any(o.status == 'accepted' for o in offer.property_id.offer_ids) else 'new'
+                    offer.property_id.state = 'offer received' if any(o.status == 'accepted' for o in offer.property_id.offers_id) else 'new'
             else:
                 offer.status = 'refused'
 

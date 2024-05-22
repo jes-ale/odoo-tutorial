@@ -40,7 +40,7 @@ class OfferModel(models.Model):
             offer.property_id.partner_id = ''
 
     @api.onchange('status')
-    def _onchange_garden(self):
+    def _onchange_status(self):
         for offer in self:
             if offer.status == 'refused':
                 offer.property_id.selling_price = 0.0

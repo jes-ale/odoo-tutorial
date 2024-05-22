@@ -26,7 +26,7 @@ class OfferModel(models.Model):
 
     def action_accept(self):
         for offer in self:
-            if offer.property_id.state == 'offer accepted':
+            if any(other_offer.status == 'accepted' for other_offer in offer.property_id.offer_ids):
                 raise UserError("An offer was already accepted.")
             offer.status = 'accepted'
             offer.property_id.partner_id = offer.partner_id
@@ -35,11 +35,11 @@ class OfferModel(models.Model):
     
     def action_refuse(self):
         for offer in self:
-            if offer.property_id.state == 'offer accepted':
-                offer.status = 'refused'
-                offer.property_id.selling_price = 0.0
-                offer.property_id.state = 'offer received'
-                offer.property_id.partner_id = ''
+            if any(other_offer.status == 'accepted' for other_offer in offer.property_id.offer_ids):
+            offer.status = 'refused'
+            offer.property_id.state = 'offer received'
+            offer.property_id.partner_id = ''
+            offer.property_id.selling_price = 0.0
 
     @api.depends('create_date', 'validity')
     def _compute_date_deadline(self):

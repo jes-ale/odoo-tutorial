@@ -183,19 +183,15 @@
                         </page>
                         <page string="Offers">
                             <field name="offers_id" widget="section_and_note_one2many" mode="tree,kanban" attrs="{'readonly': [('state', 'in', ['offer-accepted', 'sold', 'canceled'])]}">
-                                <form>
-                                    <group>
-                                        <div class="row">
-                                            <field name="price" editable="True"/>
-                                            <field name="partner_id" editable="True"/>
-                                            <field name="validity" editable="True"/>
-                                            <field name="date_deadline"/>
-                                            <button name="action_accept" type="object" icon="fa-check" attrs="{'invisible': [('status', 'in', ['accepted','refused'])]}"/>
-                                            <button name="action_refuse" type="object" icon="fa-times" attrs="{'invisible': [('status', 'in', ['accepted','refused'])]}"/>
-                                            <field name="status"/>
-                                        </div>
-                                    </group> 
-                                </form>
+                                <tree editable="bottom"> 
+                                    <field name="price" editable="True"/>
+                                    <field name="partner_id" editable="True"/>
+                                    <field name="validity" editable="True"/>
+                                    <field name="date_deadline"/>
+                                    <button name="action_accept" type="object" icon="fa-check" attrs="{'invisible': [('status', 'in', ['accepted','refused'])]}"/>
+                                    <button name="action_refuse" type="object" icon="fa-times" attrs="{'invisible': [('status', 'in', ['accepted','refused'])]}"/>
+                                    <field name="status"/>
+                                </tree>
                             </field>
                         </page>
                         <page string="Other info">

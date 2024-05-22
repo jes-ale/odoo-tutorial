@@ -182,8 +182,8 @@
                             </div>
                         </page>
                         <page string="Offers">
-                            <field name="offers_id" attrs="{'readonly' : [('state', 'in' , ['offer-accepted', 'sold', 'canceled'])]}">
-                                <tree string="Offer" widget="section_and_note_one2many">
+                            <field name="offers_id" attrs="{'readonly' : [('state', 'in' , ['offer-accepted', 'sold', 'canceled'])]}" mode="tree,kanban">
+                                <tree string="Offer">
                                     <field name="price"/>
                                     <field name="partner_id"/>
                                     <field name="validity"/>

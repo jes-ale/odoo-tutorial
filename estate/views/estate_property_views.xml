@@ -45,7 +45,7 @@
                         </h1>
                     </div>
                     <div class="row">
-                        <field name="tags_ids" widget="many2many_tags"/>
+                        <field name="tags_ids" widget="many2many_tags" options="{'color_field' : 'color'}"/>
                     </div>
                     <div class="row">
                         <div class="col-6">
@@ -54,7 +54,7 @@
                                     <label for="property_type_id"/>
                                 </div>
                                 <div class="col-4">
-                                    <field name="property_type_id"/><br/>
+                                    <field name="property_type_id" options="{'no_create': True, 'no_edit': True}"/><br/>
                                 </div>
                             </div>
                             <div class="row">

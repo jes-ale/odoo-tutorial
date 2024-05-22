@@ -8,6 +8,7 @@ class PropertyTagsModel(models.Model):
     active = fields.Boolean(default=True)
     name = fields.Char(default="Unknown", required=True)
     description = fields.Text()
+    color = fields.Integer()
 
     @api.constrains('name')
     def _check_tag_name(self):

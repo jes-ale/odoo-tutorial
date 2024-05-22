@@ -183,7 +183,7 @@
                         </page>
                         <page string="Offers">
                             <field name="offers_id" attrs="{'readonly' : [('state', 'in' , ['offer-accepted', 'sold', 'canceled'])]}">
-                                <tree string="Offer" edit="True">
+                                <tree string="Offer" widget="section_and_note_one2many">
                                     <field name="price"/>
                                     <field name="partner_id"/>
                                     <field name="validity"/>

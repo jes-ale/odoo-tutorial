@@ -182,8 +182,8 @@
                             </div>
                         </page>
                         <page string="Offers">
-                            <field name="offers_id" attrs="{'readonly' : [('state', 'in' , ['offer-accepted', 'sold', 'canceled'])]}" mode="tree,kanban">
-                                <tree string="Offer" edit="True"> 
+                            <field name="offers_id" attrs="{'readonly' : [('state', 'in' , ['offer-accepted', 'sold', 'canceled'])]}" widget="section_and_note_one2many" mode="tree,kanban">
+                                <form string="Offer"> 
                                     <field name="price"/>
                                     <field name="partner_id"/>
                                     <field name="validity"/>
@@ -191,7 +191,7 @@
                                     <button name="action_accept" type="object" icon="fa-check" attrs="{'invisible': [('status', 'in', ['accepted','refused'])]}"/>
                                     <button name="action_refuse" type="object" icon="fa-times" attrs="{'invisible': [('status', 'in', ['accepted','refused'])]}"/>
                                     <field name="status"/>
-                                </tree>
+                                </form>
                             </field>
                         </page>
                         <page string="Other info">

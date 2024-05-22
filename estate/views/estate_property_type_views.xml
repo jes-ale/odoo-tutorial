@@ -16,6 +16,7 @@
         <field name="model">estate_property_type</field>
         <field name="arch" type="xml">
             <tree string="Propiedad">
+                <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 
             </tree>

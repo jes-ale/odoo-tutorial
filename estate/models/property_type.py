@@ -7,6 +7,7 @@ class PropertyTypeModel(models.Model):
 
     name = fields.Char(default="Unknown", required=True)
     property_ids = fields.One2many('estate_property', 'property_type_id')
+    sequence = fields.Integer('Sequence', default=1, help="Used to order propertys.")
 
     @api.constrains('name')
     def _check_type_name(self):

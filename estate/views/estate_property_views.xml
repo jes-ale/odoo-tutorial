@@ -182,7 +182,7 @@
                             </div>
                         </page>
                         <page string="Offers">
-                            <field name="offers_id" widget="one2many_list" mode="tree,kanban" attrs="{'readonly': [('state', 'in', ['offer-accepted', 'sold', 'canceled'])]}">
+                            <field name="offers_id" options="{'can_write': True, 'no_open': True}" attrs="{'readonly': [('state', 'in', ['offer-accepted', 'sold', 'canceled'])]}">
                                 <tree> 
                                     <field name="price"/>
                                     <field name="partner_id"/>

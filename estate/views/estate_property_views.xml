@@ -184,8 +184,8 @@
                             </div>
                         </page>
                         <page string="Offers">
-                            <field name="offers_id" widget="section_and_note_one2many" mode="tree,kanban" attrs="{'readonly': [('state', 'in', ['offer-accepted', 'sold', 'canceled'])]}" >
-                                <tree editable="bottom" decoration-danger="status == 'refused'" decoration-success="status == 'accepted'" > 
+                            <field name="offers_id" widget="section_and_note_one2many" mode="tree,kanban" attrs="{'readonly': [('state', 'in', ['offer-accepted', 'sold', 'canceled'])]}">
+                                <tree editable="bottom" decoration-danger="status == 'refused'" decoration-success="status == 'accepted'">
                                     <field name="price" editable="True"/>
                                     <field name="partner_id" editable="True"/>
                                     <field name="validity" editable="True"/>

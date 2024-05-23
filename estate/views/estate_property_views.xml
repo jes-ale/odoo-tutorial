@@ -234,7 +234,7 @@
                 <field name="postcode"/>
                 <field name="expected_price"/>
                 <field name="bedrooms"/>
-                <field name="living_area" filter_domain="['|', ('living_area', '>=', self)]"/>
+                <field name="living_area" filter_domain="[('living_area', '>=', self)]"/>
                 <field name="facades"/>
                 <separator/>
                 <filter string="Available Properties" name="state" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer-received')]"/>

@@ -11,6 +11,13 @@
         </field>
     </record>
 
+    <record id="property_offer_action" model="ir.actions.act_window">
+        <field name="name">Offers</field>
+        <field name="res_model">property_offer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('property_type_id', '=', active_id)]</field>
+    </record>
+
     <record id="estate_poperty_type_view_tree" model="ir.ui.view">
         <field name="name">estate_property_tree</field>
         <field name="model">estate_property_type</field>

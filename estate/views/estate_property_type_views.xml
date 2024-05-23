@@ -46,6 +46,12 @@
                             <field name="name" class="mb16"/>
                         </h1>
                     </div>
+                    <group>
+                        <field name="sequence"/>
+                    </group>
+                    <group>
+                        <field name="offer_count" widget="statinfo" options="{'clickable': True}"/>
+                    </group>
                     <notebook>
                         <page string="Properties">
                             <field name="property_ids">

@@ -9,7 +9,7 @@ class PropertyTypeModel(models.Model):
     property_ids = fields.One2many('estate_property', 'property_type_id')
     sequence = fields.Integer('Sequence', default=1, help="Used to order propertys.")
     offer_ids = fields.One2many('property_offer', 'property_type_id')
-    offer_count = fields.Integer(compute='_check_offer_ids', store=True)
+    offer_count = fields.Integer(compute='_check_offer_ids', store=True, string="Offers")
 
     @api.constrains('name')
     def _check_type_name(self):

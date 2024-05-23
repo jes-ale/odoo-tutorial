@@ -18,14 +18,13 @@
         <field name="domain">[('property_type_id', '=', active_id)]</field>
     </record>
 
-    <record id="estate_poperty_type_view_tree" model="ir.ui.view">
-        <field name="name">estate_property_tree</field>
+    <record id="estate_property_tree_view" model="ir.ui.view">
+        <field name="name">estate.property.tree.view</field>
         <field name="model">estate_property_type</field>
         <field name="arch" type="xml">
-            <tree string="Propiedad">
+            <tree string="Property Types">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
-                
             </tree>
         </field>
     </record>
@@ -45,15 +44,14 @@
             </tree>
         </field>
     </record>
-    
 
     <record id="estate_property_type_view_form" model="ir.ui.view">
-        <field name="name">estate_property_type_form</field>
+        <field name="name">estate.property.type.form</field>
         <field name="model">estate_property_type</field>
         <field name="arch" type="xml">
-            <form>
+            <form string="Property Type Form">
                 <sheet>
-                    <button string="Offers" type="action" name="%(property_offer_action)d"
+                    <button string="View Offers" type="action" name="%(property_offer_action)d"
                         context="{'default_property_type_id': active_id}"
                         icon="fa-cash"/>
                     <div class="oe_title row">

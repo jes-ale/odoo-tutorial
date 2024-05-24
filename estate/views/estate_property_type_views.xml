@@ -56,10 +56,12 @@
                             <field name="name" class="mb16"/>
                         </h1>
                         <div class="oe_right oe_stat_button">
-                            <button string="Offers" type="action" name="%(property_offer_action)d"
+                            <button type="action" name="%(property_offer_action)d"
                             context="{'default_property_type_id': active_id}"
-                            icon="fa-money"/>
-                            <field name="offer_count" widget="statinfo" options="{'clickable': True}"/>
+                            icon="fa-money">
+                                <field name="offer_count" widget="statinfo" options="{'clickable': True}"/>
+                            </button>
+                            
                         </div>
                     </div>
                     <group>

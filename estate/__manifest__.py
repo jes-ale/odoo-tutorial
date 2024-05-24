@@ -3,7 +3,6 @@
     'version': '1.1',
     'description': "Este es un modulo de pruebas.", 
     'application': True,
-    'depends': ['res.users', 'estate_property'],
     'data': [
         'security/ir.model.access.csv',
         'views/estate_property_views.xml',

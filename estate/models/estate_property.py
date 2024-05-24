@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from odoo import fields, models , api
+from odoo import fields, models , api, exceptions
 from odoo.exceptions import UserError
 from odoo.exceptions import ValidationError
 from odoo.tools.float_utils import float_compare, float_is_zero
@@ -81,22 +81,23 @@ class PropertyModel(models.Model):
     @api.constrains('expected_price', 'selling_price', 'state')
     def _check_prices(self):
         for record in self:
-            # Check that the expected price is always positive
             if float_compare(record.expected_price, 0.0, precision_rounding=0.01) < 0:
                 raise ValidationError("The expected price of a property should be positive.")
             
-            # Selling price can be zero only if the property is not yet sold or canceled
             if record.state not in ['sold', 'canceled'] and float_is_zero(record.selling_price, precision_rounding=0.01):
                 continue
             
-            # Check that the selling price is positive otherwise
             if float_compare(record.selling_price, 0.0, precision_rounding=0.01) < 0:
                 raise ValidationError("Selling price of a property should be positive unless the property is sold or canceled.")
             
-            # Check that the selling price is at least 90% of the expected price
             min_acceptable_price = record.expected_price * 0.9
             if not float_is_zero(record.selling_price, precision_rounding=0.01) and float_compare(record.selling_price, min_acceptable_price, precision_rounding=0.01) < 0:
                 raise ValidationError("The selling price cannot be lower than 90% of the expected price.")
             
+
+    @api.ondelete('state', at_uninstall=False)
+    def _unlink_if_state_remove(self):
+        if property.state not in ['new', 'canceled']:
+                raise exceptions.ValidationError("You cannot delete a property unless it is in 'New' or 'Canceled' state.")
                 
             

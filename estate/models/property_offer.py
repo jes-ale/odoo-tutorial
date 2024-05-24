@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from odoo import fields, models, api
+from odoo import fields, models, api, exceptions
 from odoo.exceptions import UserError
 from odoo.exceptions import ValidationError
 
@@ -68,4 +68,18 @@ class OfferModel(models.Model):
             if offer.price < 0:
                 raise ValidationError("The price should be upper than 0")
             offer.property_id.state = 'offer-received'
-                
+
+    @api.model
+    def create(self, vals):
+        property_id = vals.get('property_id')
+        price = vals.get('price')
+
+        if property_id and price:
+            property_obj = self.env['estate.property'].browse(property_id)
+            existing_offers = property_obj.offer_ids.filtered(lambda offer: offer.id != vals.get('id'))
+            if existing_offers and any(offer.price <= price for offer in existing_offers):
+                raise exceptions.ValidationError("Offer price must be higher than existing offers.")     
+
+        vals['status'] = 'offer-received'
+
+        return super(OfferModel, self).create(vals)         

@@ -95,9 +95,13 @@ class PropertyModel(models.Model):
                 raise ValidationError("The selling price cannot be lower than 90% of the expected price.")
             
 
-    @api.ondelete('state', at_uninstall=False)
+    @api.ondelete(at_uninstall=False)
     def _unlink_if_state_remove(self):
-        if property.state not in ['new', 'canceled']:
-                raise exceptions.ValidationError("You cannot delete a property unless it is in 'New' or 'Canceled' state.")
+        for record in self:
+            if record.state not in ['new', 'canceled']:
+                raise ValidationError("Cannot delete a property with state other than 'New' or 'Canceled'.")
+        return super(PropertyModel, self)._unlink_if_state_remove()
+
+        
                 
             

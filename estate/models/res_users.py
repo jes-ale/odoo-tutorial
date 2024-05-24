@@ -12,3 +12,8 @@ class Users(models.Model):
         )
     
     user_partner_id = fields.Many2one('res.partner', string="Related Partner")
+    hr_presence_state = fields.Selection([
+        ('present', 'Present'),
+        ('absent', 'Absent'),
+        ('not_set', 'Not Set'),
+    ], string="Presence State")

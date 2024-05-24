@@ -11,3 +11,4 @@ class Users(models.Model):
         domain=[('state', '=', 'available')]
         )
     
+    user_partner_id = fields.Many2one('res.partner', string="Related Partner")

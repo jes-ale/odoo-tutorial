@@ -14,7 +14,7 @@
                                 <field name="name" />
                                 <field name="property_type_id" />
                                 <field name="postcode" />
-                                <field name="tag_ids" />
+                                <field name="tags_ids" />
                                 <field name="bedrooms" />
                                 <field name="living_area" />
                                 <field name="expected_price" />

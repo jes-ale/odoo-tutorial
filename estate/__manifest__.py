@@ -9,7 +9,9 @@
         'views/estate_property_type_views.xml',
         'views/estate_property_tags_views.xml',
         'views/estate_menus.xml',
-        'views/res_user_views.xml'
+        'views/res_user_views.xml',
+        'views/estate_account.xml',
+        'views/estate_account_menus.xml'
         
     ]
 }

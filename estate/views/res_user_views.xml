@@ -11,7 +11,7 @@
                     <page string="Real Estate Properties">
                         <field name="property_ids" widget="section_and_note_one2many" mode="tree,kanban">
                             <tree editable="bottom" decoration-danger="status == 'refused'" decoration-success="status == 'accepted'">
-                                <field name="Title" />
+                                <field name="name" />
                                 <field name="property_type_id" />
                                 <field name="postcode" />
                                 <field name="tag_ids" />

@@ -10,7 +10,7 @@
                 <xpath expr="//page[@name='hr_settings']" position="after">
                     <page string="Real Estate Properties">
                         <field name="property_ids" widget="section_and_note_one2many" mode="tree,kanban">
-                            <tree editable="bottom" decoration-danger="offers_id.status == 'refused'" decoration-success="offers_id.status == 'accepted'">
+                            <tree editable="bottom">
                                 <field name="name" />
                                 <field name="property_type_id" />
                                 <field name="postcode" />
@@ -19,7 +19,6 @@
                                 <field name="living_area" />
                                 <field name="expected_price" />
                                 <field name="selling_price" />
-                                <field name="offers_id.status" invisible="1" />
                             </tree>
                         </field>
                     </page>

@@ -2,7 +2,7 @@ from odoo import fields, models
 
 
 class Users(models.Model):
-    _inherit = 'res.users'
+    _inherit = 'hr.employee'
 
     property_ids = fields.One2many(
         'estate_property',

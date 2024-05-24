@@ -17,3 +17,4 @@ class Users(models.Model):
         ('absent', 'Absent'),
         ('not_set', 'Not Set'),
     ], string="Presence State")
+    hr_icon_display = fields.Char(string="Icon Display")

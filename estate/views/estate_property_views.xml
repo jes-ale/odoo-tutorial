@@ -188,7 +188,7 @@
                             <field name="offers_id" widget="section_and_note_one2many" mode="tree,kanban" attrs="{'readonly': [('state', 'in', ['offer-accepted', 'sold', 'canceled'])]}" >
                                 <tree editable="bottom" decoration-danger="status == 'refused'" decoration-success="status == 'accepted'"> 
                                     <field name="price" editable="True"/>
-                                    <field name="partner_id" editable="True"/>
+                                    <field name="user_partner_id" editable="True"/>
                                     <field name="validity" editable="True"/>
                                     <field name="date_deadline"/>
                                     <button name="action_accept" type="object" icon="fa-check" attrs="{'invisible': [('status', 'in', ['accepted','refused'])]}"/>
@@ -210,12 +210,12 @@
                             <div class="row">
                                 <div class="col-2">
                                     
-                                    <label for="partner_id"/>
+                                    <label for="user_partner_id"/>
                                     
                                 </div>
                                 <div class="">
                                 
-                                        <field name="partner_id"/>
+                                        <field name="user_partner_id"/>
                                     
                                 </div>
                             </div>

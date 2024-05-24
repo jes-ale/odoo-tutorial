@@ -34,7 +34,7 @@ class PropertyModel(models.Model):
     )
     property_type_id = fields.Many2one('estate_property_type', string='Property type', index=True)
     user_id = fields.Many2one('res.users', string='Salesperson', index=True, tracking=True, default=lambda self: self.env.user, copy=False)
-    partner_id = fields.Many2one('res.partner', string='Customer', index=True, tracking=10)
+    user_partner_id = fields.Many2one('res.partner', string='Customer', index=True, tracking=10)
     tags_ids = fields.Many2many("estate_property_tags", string='Name')
     offers_id = fields.One2many("property_offer", "property_id", string="Offers")
     total_area = fields.Integer(compute='_compute_total_area', store=True, copy=False, string="Total Area (sqm)")
@@ -57,10 +57,10 @@ class PropertyModel(models.Model):
         for record in self:
             record.total_area = record.garden_area + record.living_area
 
-    @api.depends('partner_id.name')
+    @api.depends('user_partner_id.name')
     def _compute_description(self):
         for record in self:
-            record.description = record.partner_id.name
+            record.description = record.user_partner_id.name
 
     @api.depends('offers_id.price')
     def _compute_best_offer(self):

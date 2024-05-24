@@ -10,3 +10,4 @@ class Users(models.Model):
         string='Properties',
         domain=[('state', '=', 'available')]
         )
+    

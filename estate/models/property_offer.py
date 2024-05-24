@@ -15,7 +15,7 @@ class OfferModel(models.Model):
         copy=False,
         readonly=True
     )
-    partner_id = fields.Many2one('res.partner', string='Customer', index=True, tracking=10,
+    user_partner_id = fields.Many2one('res.partner', string='Customer', index=True, tracking=10,
         required=True
     )
     property_id = fields.Many2one('estate_property', string="property", required=True, index=True)
@@ -29,7 +29,7 @@ class OfferModel(models.Model):
             if any(other_offer.status == 'accepted' for other_offer in offer.property_id.offers_id):
                 raise UserError("An offer was already accepted.")
             offer.status = 'accepted'
-            offer.property_id.partner_id = offer.partner_id
+            offer.property_id.user_partner_id = offer.user_partner_id
             offer.property_id.selling_price = offer.price
             offer.property_id.state = 'offer-accepted'
     

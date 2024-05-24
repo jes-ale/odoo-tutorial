@@ -18,3 +18,5 @@ class Users(models.Model):
         ('not_set', 'Not Set'),
     ], string="Presence State")
     hr_icon_display = fields.Char(string="Icon Display")
+    last_activity_time = fields.Datetime(string="Last Activity Time")
+    last_activity = fields.Char(string="Last Activity")

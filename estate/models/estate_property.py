@@ -100,7 +100,7 @@ class PropertyModel(models.Model):
         for record in self:
             if record.state not in ['new', 'canceled']:
                 raise ValidationError("Cannot delete a property with state other than 'New' or 'Canceled'.")
-        return super(PropertyModel, self).unlink()
+        
 
         
                 

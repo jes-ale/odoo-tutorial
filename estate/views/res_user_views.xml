@@ -2,12 +2,12 @@
 <odoo>
     <data>
 
-        <record id="res_users_view_form" model="ir.ui.view">
+        <record id="res_users_view_form_inherit_estate" model="ir.ui.view">
             <field name="name">res_users_view_form_inherit_estate</field>
             <field name="model">res.users</field>
-            <field name="inherit_id" ref="hr.employee.form"/>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='hr_settings']" position="after">
+                <xpath expr="//page[@name='hr_settings']" position="after">
                     <page string="Real Estate Properties">
                         <field name="property_ids" widget="section_and_note_one2many" mode="tree,kanban">
                             <tree editable="bottom" decoration-danger="status == 'refused'" decoration-success="status == 'accepted'">

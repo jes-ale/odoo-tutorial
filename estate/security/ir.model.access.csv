@@ -4,4 +4,3 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 3,property_tags,estate.model_estate_property_tags,,1,1,1,1
 4,offers,estate.model_property_offer,,1,1,1,1
 5,res_users,estate.model_res_users,,1,1,1,1
-6,estate_account,estate.model_estate_account,,1,1,1,1

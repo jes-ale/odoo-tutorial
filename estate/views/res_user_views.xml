@@ -10,13 +10,13 @@
                     <page string="Real Estate Properties">
                         <field name="property_ids" widget="section_and_note_one2many" mode="tree,kanban">
                             <tree editable="bottom">
-                                <field name="name" />
-                                <field name="property_type_id" />
-                                <field name="postcode" />
-                                <field name="tags_ids" />
-                                <field name="bedrooms" />
-                                <field name="living_area" />
-                                <field name="expected_price" />
+                                <field name="name" editable="True"/>
+                                <field name="property_type_id"/>
+                                <field name="postcode" editable="True"/>
+                                <field name="tags_ids" editable="True"/>
+                                <field name="bedrooms" editable="True"/>
+                                <field name="living_area" editable="True"/>
+                                <field name="expected_price" editable="True"/>
                                 <field name="selling_price" />
                             </tree>
                         </field>

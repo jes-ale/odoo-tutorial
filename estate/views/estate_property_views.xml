@@ -24,15 +24,15 @@
                                 <field name="name"/>
                             </div>
                             <div class="row">
-                                <label name="expectec_price"/>
+                                <label for="expectec_price"/>
                                 <field name="expected_price"/>
                             </div>
                             <div class="row" attrs="{'invisible': [('state', '=', 'new')]}">
-                                <label name="best_price"/>
+                                <label for="best_price"/>
                                 <field name="best_price" />
                             </div>
                             <div class="row" attrs="{'invisible': [('state', '=', 'offer-accepted')]}">
-                                <label name="selling_price"/>
+                                <label for="selling_price"/>
                                 <field name="selling_price" />
                             </div>
                             <field name="tags_ids"/>

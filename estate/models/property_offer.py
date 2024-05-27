@@ -74,7 +74,7 @@ class OfferModel(models.Model):
         price = vals.get('price')
 
         if property_id and price:
-            property_obj = self.env['estate.property'].browse(property_id)
+            property_obj = self.env['estate_property'].browse(property_id)
             existing_offers = property_obj.offer_ids.filtered(lambda offer: offer.id != vals.get('id'))
             if existing_offers and any(offer.price <= price for offer in existing_offers):
                 raise exceptions.ValidationError("Offer price must be higher than existing offers.")     

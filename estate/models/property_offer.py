@@ -79,6 +79,6 @@ class OfferModel(models.Model):
             if existing_offers and any(offer.price <= price for offer in existing_offers):
                 raise exceptions.ValidationError("Offer price must be higher than existing offers.")     
 
-        vals['status'] = 'offer-received'
+        vals['state'] = 'offer-received'
 
         return super(OfferModel, self).create(vals)         

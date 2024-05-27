@@ -1,10 +1,9 @@
-from odoo import models, fields, api, _
+from odoo import models, fields, api
 from odoo.exceptions import UserError
 
 class PropertyModel(models.Model):
     _inherit = 'estate_property'
 
-    @api.model
     def action_sold(self):
         print("Estate Property action_sold method called.")
         
@@ -27,4 +26,4 @@ class PropertyModel(models.Model):
             ],
         }
         move = self.env['account_move'].create(move_vals)
-        return super(self).action_sold()
+        return super(PropertyModel, self).action_sold()

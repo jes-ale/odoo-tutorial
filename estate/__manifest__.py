@@ -10,7 +10,8 @@
         'views/estate_property_tags_views.xml',
         'views/estate_menus.xml',
         'views/res_user_views.xml',
-        'report/report_property_offers_template.xml'
+        'report/report_property_offers_template.xml',
+        'report/report_property_offer_reports.xml'
         
     ]
 }

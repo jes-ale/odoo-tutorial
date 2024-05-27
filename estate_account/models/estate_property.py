@@ -2,7 +2,7 @@ from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 
 class PropertyModel(models.Model):
-    _inherit = 'estate.property'
+    _inherit = 'estate_property'
 
     @api.model
     def action_sold(self):

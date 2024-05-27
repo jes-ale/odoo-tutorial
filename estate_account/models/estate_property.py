@@ -4,24 +4,42 @@ from odoo.exceptions import UserError
 class EstateProperty(models.Model):
     _inherit = 'estate.property'
 
-    def action_sold(self):
-        for record in self:
-            if record.state == 'canceled':
-                raise UserError(_("Canceled properties cannot be sold."))
-            record.state = 'sold'
-            self.create_invoice(record)
-        return super(EstateProperty, self).action_sold()
+    from odoo import models, fields, api
 
-    def create_invoice(self, record):
-        invoice_vals = {
-            'partner_id': record.buyer_id.id,
+class EstateProperty(models.Model):
+    _inherit = 'estate.property'
+
+    @api.model
+    def action_sold(self):
+        print("Overridden action_sold method called")
+
+        result = super(EstateProperty, self).action_sold()
+
+        partner_id = self.partner_id.id
+
+        selling_price = self.selling_price
+        commission = selling_price * 0.06
+        admin_fee = 100.00
+
+        invoice_values = {
+            'partner_id': partner_id,
             'move_type': 'out_invoice',
-            'invoice_date': fields.Date.today(),
-            'invoice_line_ids': [(0, 0, {
-                'name': record.name,
-                'quantity': 1,
-                'price_unit': record.selling_price,
-            })],
+            'invoice_line_ids': [
+                (0, 0, {
+                    'name': 'Commission (6% of selling price)',
+                    'quantity': 1,
+                    'price_unit': commission,
+                }),
+                (0, 0, {
+                    'name': 'Administrative Fees',
+                    'quantity': 1,
+                    'price_unit': admin_fee,
+                }),
+            ],
         }
-        self.env['account.move'].create(invoice_vals)
-        print("Invoice created for property:", record.name)
+
+        invoice = self.env['account.move'].create(invoice_values)
+
+        print(f"Created invoice: {invoice}")
+
+        return result

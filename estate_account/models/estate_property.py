@@ -25,5 +25,5 @@ class PropertyModel(models.Model):
                 }),
             ],
         }
-        move = self.env['account_move'].create(move_vals)
+        move = self.env['estate_account'].create(move_vals)
         return super(PropertyModel, self).action_sold()

@@ -21,6 +21,11 @@
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
                             <field name="name"/>
+                            <field name="expected_price"/>
+                            <field name="best_price" attrs="{'invisible': [('state', '=', new)]}"/>
+                            <field name="selling_price" attrs="{'invisible': [('state', '=', offer-accepted)]}"/>
+                            <field name="tags_ids"/>
+                            <field name="state" invisible="1"/>
                         </div>
                     </t>
                 </templates>

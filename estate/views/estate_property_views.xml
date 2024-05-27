@@ -16,14 +16,25 @@
         <field name="name">estate.property.kanban.view</field>
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_view">
+            <kanban class="o_kanban_view" default_group_by="True" records_draggable="False" gorups_draggable="False">
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
-                            <field name="name"/>
-                            <field name="expected_price"/>
-                            <field name="best_price" attrs="{'invisible': [('state', '=', 'new')]}"/>
-                            <field name="selling_price" attrs="{'invisible': [('state', '=', 'offer-accepted')]}"/>
+                            <div class="row">
+                                <field name="name"/>
+                            </div>
+                            <div class="row">
+                                <label name="expectec_price"/>
+                                <field name="expected_price"/>
+                            </div>
+                            <div class="row" attrs="{'invisible': [('state', '=', 'new')]}">
+                                <label name="best_price"/>
+                                <field name="best_price" />
+                            </div>
+                            <div class="row" attrs="{'invisible': [('state', '=', 'offer-accepted')]}">
+                                <label name="selling_price"/>
+                                <field name="selling_price" />
+                            </div>
                             <field name="tags_ids"/>
                             <field name="state" invisible="1"/>
                         </div>

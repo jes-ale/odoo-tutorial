@@ -24,7 +24,7 @@
                                 <field name="name"/>
                             </div>
                             <div class="row">
-                                <label for="expectec_price"/>
+                                <label for="expected_price"/>
                                 <field name="expected_price"/>
                             </div>
                             <div class="row" attrs="{'invisible': [('state', '=', 'new')]}">

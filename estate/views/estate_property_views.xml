@@ -25,16 +25,16 @@
                                 <field name="tags_ids"/>
                             </div>
                             <div class="row px-2">
-                                <span>Expected price: </span>
-                                <field name="expected_price"/>
+                                <span>Expected price: <t t-field="expected_price"/></span>
+                                
                             </div>
                             <div class="row px-2" attrs="{'invisible': [('state', '=', 'new')]}">
-                                <span>Best offer: </span>
-                                <field name="best_price" />
+                                <span>Best offer: <t t-field="best_price" /></span>
+                                
                             </div>
                             <div class="row px-2" attrs="{'invisible': [('state', 'in', ['new', 'offer-received'])]}">
-                                <span>Selling price: </span>
-                                <field name="selling_price" />
+                                <span>Selling price: <t t-field="selling_price" /></span>
+                                
                             </div>
                             <field name="state" invisible="1"/>
                         </div>

@@ -25,15 +25,15 @@
                                 <field name="tags_ids"/>
                             </div>
                             <div class="row px-2">
-                                <label for="expected_price"/>
+                                <span>Expected price: </span>
                                 <field name="expected_price"/>
                             </div>
                             <div class="row px-2" attrs="{'invisible': [('state', '=', 'new')]}">
-                                <label for="best_price"/>
+                                <span>Best offer: </span>
                                 <field name="best_price" />
                             </div>
                             <div class="row px-2" attrs="{'invisible': [('state', 'in', ['new', 'offer-received'])]}">
-                                <label for="selling_price"/>
+                                <span>Selling price: </span>
                                 <field name="selling_price" />
                             </div>
                             <field name="state" invisible="1"/>

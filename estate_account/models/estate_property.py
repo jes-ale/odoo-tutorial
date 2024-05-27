@@ -6,35 +6,26 @@ class PropertyModel(models.Model):
 
     @api.model
     def action_sold(self):
-        print("Overridden action_sold method called")
+        print("Estate Property action_sold method called.")
+        
+        partner_id = self.buyer_id.id
 
-        result = super(PropertyModel, self).action_sold()
-
-        partner_id = self.user_partner_id.id
-
-        selling_price = self.selling_price
-        commission = selling_price * 0.06
-        admin_fee = 100.00
-
-        invoice_values = {
+        move_vals = {
             'partner_id': partner_id,
             'move_type': 'out_invoice',
             'invoice_line_ids': [
                 (0, 0, {
-                    'name': 'Commission (6% of selling price)',
+                    'name': 'Selling Price Commission (6%)',
                     'quantity': 1,
-                    'price_unit': commission,
+                    'price_unit': self.selling_price * 0.06,
                 }),
                 (0, 0, {
                     'name': 'Administrative Fees',
                     'quantity': 1,
-                    'price_unit': admin_fee,
+                    'price_unit': 100.00,
                 }),
             ],
         }
-
-        invoice = self.env['estate_account'].create(invoice_values)
-
-        print(f"Created invoice: {invoice}")
-
+        move = self.env['account.move'].create(move_vals)
+        result = super(PropertyModel, self).action_sold()
         return result

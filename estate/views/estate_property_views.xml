@@ -16,7 +16,7 @@
         <field name="name">estate.property.kanban.view</field>
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_view" default_group_by="True" records_draggable="False" groups_draggable="False">
+            <kanban class="o_kanban_view" default_group_by="name" records_draggable="False" groups_draggable="False">
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">

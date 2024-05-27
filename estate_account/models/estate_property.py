@@ -7,7 +7,7 @@ class PropertyModel(models.Model):
     def action_sold(self):
         print("Estate Property action_sold method called.")
         
-        partner_id = self.buyer_id.id
+        partner_id = self.user_partner_id.id
 
         move_vals = {
             'partner_id': partner_id,

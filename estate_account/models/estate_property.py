@@ -1,16 +1,16 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 
-class EstateProperty(models.Model):
+class PropertyModel(models.Model):
     _inherit = 'estate_property'
 
     @api.model
     def action_sold(self):
         print("Overridden action_sold method called")
 
-        result = super(EstateProperty, self).action_sold()
+        result = super(PropertyModel, self).action_sold()
 
-        partner_id = self.partner_id.id
+        partner_id = self.user_partner_id.id
 
         selling_price = self.selling_price
         commission = selling_price * 0.06
